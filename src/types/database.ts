@@ -24,6 +24,8 @@ export type OrderStatus =
   | 'CANCELLED';
 
 export type DeliveryType = 'pickup_delivery' | 'dropoff_pickup' | 'pickup_only';
+export type PaymentMethod = 'CASH' | 'QRIS';
+export type PaymentStatus = 'UNPAID' | 'PAID';
 
 export interface ClientOrder {
   id: string;
@@ -36,6 +38,12 @@ export interface ClientOrder {
   service_name: string;
   estimated_weight_kg: number;
   customer_notes?: string;
+  payment_method?: PaymentMethod;
+  payment_status?: PaymentStatus;
+  total_amount?: number;
+  actual_weight_kg?: number;
+  piece_count?: number;
+  payment_proof_url?: string;
   status: OrderStatus;
   created_at: string;
   updated_at: string;
